@@ -1,5 +1,4 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,9 +15,9 @@ public class DropdownPracticeTests {
     @BeforeMethod
     public void openDropdownTestPage(){
         driver = new ChromeDriver();
-        Dimension newSize = new Dimension(800, 600);
-        driver.manage().window().setSize(newSize);
-//        driver.manage().window().maximize();
+//        Dimension newSize = new Dimension(1440, 800);
+//        driver.manage().window().setSize(newSize);
+        driver.manage().window().maximize();
         driver.get("https://leafground.com/select.xhtml;jsessionid=node01tzrb8k9l4yp21r2c2pugovfnq3619720.node0");
     }
 
@@ -61,6 +60,19 @@ public class DropdownPracticeTests {
                  element.click();
                  break;
             }
+        }
+    }
+
+    @Test
+    public void GoogleSearchDropdownTests() throws InterruptedException {
+        driver.get("https://www.google.com/");
+        WebElement searchBoxGoogle = driver.findElement(By.xpath("//textarea[@id='APjFqb']"));
+        searchBoxGoogle.sendKeys("Yamal");
+        Thread.sleep(3000);
+        List<WebElement> googleSearchList = driver.findElements(By.xpath("//ul[@role='listbox']//li//div[@class='wM6W7d']"));
+        System.out.println(googleSearchList.size());
+        for (WebElement element:googleSearchList){
+            System.out.println(element.getText());
         }
     }
 }
