@@ -32,21 +32,35 @@ public class DropdownPractice {
 
         WebElement dropdownUIAutomation = driver.findElement(By.xpath("//select[@class='ui-selectonemenu']"));
         Select select = new Select(dropdownUIAutomation);
-        select.selectByIndex(1);
+        select.selectByIndex(3);
         Thread.sleep(3000);
         select.selectByVisibleText("Puppeteer");
         Thread.sleep(3000);
 
         List<WebElement> listOfOptions = select.getOptions();
         int sizeOfDropdown = listOfOptions.size();
-        System.out.println("Number of Elements in Dropdown" + sizeOfDropdown);
+        System.out.println("Number of Elements in Dropdown " + sizeOfDropdown);
 
         for (WebElement element:listOfOptions) {
             System.out.println(element.getText());
         }
 
         dropdownUIAutomation.sendKeys("Playwright");
-
+        Thread.sleep(3000);
     }
 
+
+    @Test
+    public void BootstrapDropdownTests() throws InterruptedException {
+        WebElement dropdownBootstrap = driver.findElement(By.xpath("//div[@id='j_idt87:country']"));
+        dropdownBootstrap.click();
+        List<WebElement> listOfBootstrapDropdownValues = driver.findElements(By.xpath("//ul[@id='j_idt87:country_items']//li"));
+        for(WebElement element:listOfBootstrapDropdownValues){
+            String dropdownValue = element.getText();
+            if (dropdownValue.equals("USA")){
+                 element.click();
+                 break;
+            }
+        }
+    }
 }
