@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -66,6 +67,7 @@ public class LinkPracticeTests {
         WebElement brokenLink = driver.findElement(By.partialLinkText("Broken"));
         brokenLink.click();
         String linkTitle = driver.getTitle();
+        Assert.assertNotNull(linkTitle);
         if (linkTitle.contains("404")){
             System.out.println("The link is broken");
         }else {

@@ -51,7 +51,7 @@ public class DropdownPracticeTests {
 
 
     @Test
-    public void BootstrapDropdownTests() throws InterruptedException {
+    public void BootstrapDropdownTests(){
         WebElement dropdownBootstrap = driver.findElement(By.xpath("//div[@id='j_idt87:country']"));
         dropdownBootstrap.click();
         List<WebElement> listOfBootstrapDropdownValues = driver.findElements(By.xpath("//ul[@id='j_idt87:country_items']//li"));
