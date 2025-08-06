@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class LinkPractise {
+public class LinkPracticeTests {
 
     WebDriver driver;
 

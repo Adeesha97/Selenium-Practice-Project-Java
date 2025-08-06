@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import org.openqa.selenium.Dimension;
 
-public class ButtonPractice {
+public class ButtonPracticeTests {
 
     WebDriver driver;
 
